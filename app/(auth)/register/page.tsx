@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { register } from '../../services/authService';
-import { 
-  User, 
-  Mail, 
-  Lock, 
-  ShieldCheck, 
-  CheckCircle2, 
+import {
+  User,
+  Mail,
+  Lock,
+  ShieldCheck,
+  CheckCircle2,
   AlertCircle,
   Loader2,
   ArrowRight,
@@ -65,7 +65,7 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 relative overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
-      
+
       <div className="w-full max-w-xl relative z-10">
         <div className="text-center mb-10">
           <Link href="/" className="inline-flex items-center space-x-2 mb-6">
@@ -110,15 +110,14 @@ export default function RegisterPage() {
                   {positions.map((pos) => {
                     const Icon = pos.icon;
                     return (
-                      <button 
-                        key={pos.label} 
-                        type="button" 
-                        onClick={() => setPosition(pos.label as any)} 
-                        className={`flex flex-col items-center justify-center py-4 px-2 rounded-xl border-2 transition-all duration-200 group ${
-                          position === pos.label 
-                            ? 'bg-primary/5 border-primary text-primary' 
-                            : 'bg-background border-border text-muted-foreground hover:border-muted-foreground/30'
-                        }`}
+                      <button
+                        key={pos.label}
+                        type="button"
+                        onClick={() => setPosition(pos.label as any)}
+                        className={`flex flex-col items-center justify-center py-4 px-2 rounded-xl border-2 transition-all duration-200 group ${position === pos.label
+                          ? 'bg-primary/5 border-primary text-primary'
+                          : 'bg-background border-border text-muted-foreground hover:border-muted-foreground/30'
+                          }`}
                       >
                         <Icon className={`w-5 h-5 mb-2 transition-transform ${position === pos.label ? 'scale-110' : 'group-hover:scale-110'}`} />
                         <span className="text-[10px] font-bold uppercase tracking-tight">{pos.label}</span>
@@ -135,13 +134,13 @@ export default function RegisterPage() {
                     <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">
                       <User className="w-5 h-5" />
                     </div>
-                    <input 
-                      type="text" 
-                      required 
-                      value={name} 
-                      onChange={(e) => setName(e.target.value)} 
-                      className="w-full bg-background border border-border rounded-xl pl-12 pr-4 py-3 text-foreground font-medium text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" 
-                      placeholder="John Doe" 
+                    <input
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="w-full bg-background border border-border rounded-xl pl-12 pr-4 py-3 text-foreground font-medium text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                      placeholder="Username"
                     />
                   </div>
                 </div>
@@ -152,13 +151,13 @@ export default function RegisterPage() {
                     <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">
                       <Mail className="w-5 h-5" />
                     </div>
-                    <input 
-                      type="email" 
-                      required 
-                      value={email} 
-                      onChange={(e) => setEmail(e.target.value)} 
-                      className="w-full bg-background border border-border rounded-xl pl-12 pr-4 py-3 text-foreground font-medium text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" 
-                      placeholder="name@company.com" 
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full bg-background border border-border rounded-xl pl-12 pr-4 py-3 text-foreground font-medium text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                      placeholder="name@company.com"
                     />
                   </div>
                 </div>
@@ -169,13 +168,13 @@ export default function RegisterPage() {
                     <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">
                       <Lock className="w-5 h-5" />
                     </div>
-                    <input 
-                      type="password" 
-                      required 
-                      value={password} 
-                      onChange={(e) => setPassword(e.target.value)} 
-                      className="w-full bg-background border border-border rounded-xl pl-12 pr-4 py-3 text-foreground font-medium text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" 
-                      placeholder="••••••••" 
+                    <input
+                      type="password"
+                      required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="w-full bg-background border border-border rounded-xl pl-12 pr-4 py-3 text-foreground font-medium text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                      placeholder="••••••••"
                     />
                   </div>
                 </div>
@@ -186,21 +185,21 @@ export default function RegisterPage() {
                     <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">
                       <Lock className="w-5 h-5" />
                     </div>
-                    <input 
-                      type="password" 
-                      required 
-                      value={confirmPassword} 
-                      onChange={(e) => setConfirmPassword(e.target.value)} 
-                      className="w-full bg-background border border-border rounded-xl pl-12 pr-4 py-3 text-foreground font-medium text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" 
-                      placeholder="••••••••" 
+                    <input
+                      type="password"
+                      required
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      className="w-full bg-background border border-border rounded-xl pl-12 pr-4 py-3 text-foreground font-medium text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                      placeholder="••••••••"
                     />
                   </div>
                 </div>
               </div>
 
-              <button 
-                type="submit" 
-                disabled={loading} 
+              <button
+                type="submit"
+                disabled={loading}
                 className="btn-primary w-full h-12 rounded-xl text-sm font-bold flex items-center justify-center space-x-2 transition-all disabled:opacity-70 mt-2"
               >
                 {loading ? (
